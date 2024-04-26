@@ -30,13 +30,13 @@ public class SpringbootJpaHibernateApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		//list();
 		//findOne();
-		//create();
+		create();
 		//update();
 		// deleteById();
 		//delete();
 		//customQueries();
 		//customQueries2();
-		customQueriesDistinct();
+		//customQueriesDistinct();
 	}
 
 	@Transactional(readOnly = true)
@@ -81,7 +81,7 @@ public class SpringbootJpaHibernateApplication implements CommandLineRunner {
 
 	@Transactional
 	public void create(){
-		Person person = new Person(null,"Lalo","Thor","Python");
+		Person person = new Person(null,"Brandon","Reyes","C");
 
 		Person personNew = repository.save(person);
 
@@ -91,9 +91,9 @@ public class SpringbootJpaHibernateApplication implements CommandLineRunner {
 	@Transactional
 	public void update(){
 
-		Optional<Person> optionalPerson = repository.findById(7L);
+		Optional<Person> optionalPerson = repository.findById(5L);
 		if(optionalPerson.isPresent()){
-			Person person = new Person(7L,"Eduardo","Thorum","Python");
+			Person person = new Person(5L,"Eduardo","Thorum","Python");
 			Person personDb = repository.save(person);
 			System.out.println(personDb);
 		}
